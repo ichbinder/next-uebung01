@@ -1,0 +1,22 @@
+import { EVEAPI } from '../constants';
+
+const getEveApiAccess = (code) => ({
+    type: EVEAPI.ACCESS,
+    code,
+});
+
+const setEveApiAuthToken = (code) => ({
+    type: EVEAPI.SET_AUTH_TOKEN,
+    code,
+});
+
+const eveLoginDialog = (open) => ({
+    type: EVEAPI.LOGIN_DIALOG,
+    open,
+});
+
+export {
+    getEveApiAccess,
+    setEveApiAuthToken,
+    eveLoginDialog,
+};
