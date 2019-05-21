@@ -1,15 +1,15 @@
 import React from 'react';
 import App, { Container } from 'next/app';
-import { Provider } from 'react-redux'
-import withRedux from 'next-redux-wrapper'
-import withReduxSaga from 'next-redux-saga'
+import { Provider } from 'react-redux';
+import withRedux from 'next-redux-wrapper';
+import withReduxSaga from 'next-redux-saga';
 import Head from 'next/head';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import JssProvider from 'react-jss/lib/JssProvider';
 
 import getPageContext from '../shared/MUI/getPageContext';
-import createStore from '../store'
+import createStore from '../store';
 
 class MyApp extends App {
   constructor() {
@@ -25,14 +25,14 @@ class MyApp extends App {
     }
   }
 
-  static async getInitialProps ({ Component, ctx }) {
-    let pageProps = {}
+  static async getInitialProps({ Component, ctx }) {
+    let pageProps = {};
 
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps({ ctx })
+      pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps }
+    return { pageProps };
   }
 
   render() {
@@ -67,4 +67,4 @@ class MyApp extends App {
   }
 }
 
-export default withRedux(createStore)(withReduxSaga(MyApp))
+export default withRedux(createStore)(withReduxSaga(MyApp));

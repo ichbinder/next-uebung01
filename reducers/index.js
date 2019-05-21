@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
 import setAuthToken from './eveApiReducers';
-import setLoginDialog from './eveLoginDialog';
+import setChar from './eveChar';
 
 const rootReducer = combineReducers({
-    authToken: setAuthToken,
-    isLoginDialogOpen: setLoginDialog,
+  authToken: setAuthToken,
+  char: setChar,
 });
 
 export default rootReducer;

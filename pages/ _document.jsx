@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Document, { Head, Main, NextScript } from 'next/document';
 import flush from 'styled-jsx/server';
+import withRedux from 'next-redux-wrapper';
+import withReduxSaga from 'next-redux-saga';
+
+import createStore from '../store';
 
 class MyDocument extends Document {
   render() {
@@ -19,7 +23,9 @@ class MyDocument extends Document {
           {/* PWA primary color */}
           <meta
             name="theme-color"
-            content={pageContext ? pageContext.theme.palette.primary.main : null}
+            content={
+              pageContext ? pageContext.theme.palette.primary.main : null
+            }
           />
           <link
             rel="stylesheet"
@@ -35,7 +41,7 @@ class MyDocument extends Document {
   }
 }
 
-MyDocument.getInitialProps = ctx => {
+MyDocument.getInitialProps = (ctx) => {
   // Resolution order
   //
   // On the server:
@@ -60,8 +66,8 @@ MyDocument.getInitialProps = ctx => {
 
   // Render app and page and get the context of the page with collected side effects.
   let pageContext;
-  const page = ctx.renderPage(Component => {
-    const WrappedComponent = props => {
+  const page = ctx.renderPage((Component) => {
+    const WrappedComponent = (props) => {
       pageContext = props.pageContext;
       return <Component {...props} />;
     };
@@ -96,4 +102,5 @@ MyDocument.getInitialProps = ctx => {
   };
 };
 
-export default MyDocument;
+// export default MyDocument;
+export default withRedux(createStore)(withReduxSaga(MyDocument));

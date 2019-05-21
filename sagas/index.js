@@ -1,7 +1,11 @@
-import { all } from 'redux-saga/effects';
+import { all, fork } from 'redux-saga/effects';
 
-import eveApiAccessSaga from './eveApiAccessSaga';
+import getCharIdSaga from './getCharIdSaga';
+import logout from './logoutSaga';
 
 export default function* rootSaga() {
-    yield all([eveApiAccessSaga()]);
+  yield all([
+    fork(getCharIdSaga),
+    fork(logout),
+  ]);
 }

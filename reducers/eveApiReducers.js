@@ -1,11 +1,11 @@
 import { EVEAPI } from '../constants';
 
 const setAuthToken = (state = '', action) => {
-    if (action.type === EVEAPI.SET_AUTH_TOKEN) {
-        return action.code;
-    }
+  if (action.type === EVEAPI.SET_AUTH_TOKEN) {
+    return action.code;
+  }
 
-    return state;
+  return state;
 };
 
 export default setAuthToken;

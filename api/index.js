@@ -1,25 +1,30 @@
+// import fetch from "isomorphic-unfetch";
+import { EVE_VERIFY_URL, BACKEND_URL } from '../config/eveApi';
 
-const fetchEveApiAccess = async authToken => {
-    // const bodyData = {
-    //   'grant_type': 'authorization_code',
-    //   'code': authToken.code,
-    // };
-    // const response = await fetch(
-    //     AUTH_URL,
-    //     {
-    //         mode: 'no-cors',
-    //         method: 'POST',
-    //         body: JSON.stringify(bodyData),
-    //         headers: {
-    //             "Authorization": "Basic ZTQ5OGE4NDBmMGVhNDIwNGE2MTI1M2I5OGFhYmE5NTE6YjBwRTNJcmw1c2xLaDFrT2tDQnhjcUxSZHhBZjdqTEhMT1FUWXM3Qw==",
-    //             "Content-Type": "application/json; charset=utf-8",
-    //         },
-    //         contentType: "application/json",
-    //     },
-    // );
-    // const data = await response.json();
-    
-    return null;
+const axios = require('axios');
+// const fetch = require("node-fetch");
+
+const fetchCharId = async (authToken) => {
+  const options = {
+    mode: 'no-cors',
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${authToken}`,
+    },
+    url: EVE_VERIFY_URL,
+  };
+  return axios(options)
+    .then(response => response.data);
 };
 
-export { fetchEveApiAccess };
+const logout = async (authToken) => {
+  const options = {
+    mode: 'no-cors',
+    method: 'DELETE',
+    url: `${BACKEND_URL}/tokens/${authToken}`,
+  };
+  return axios(options).then(response => response.data);
+};
+
+export { fetchCharId, logout };

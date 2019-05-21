@@ -14,18 +14,34 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
+    "axios": "^0.18.0",
+    "es6-promise": "^4.2.6",
+    "isomorphic-fetch": "^2.2.1",
+    "isomorphic-unfetch": "^3.0.0",
     "jss": "^9.8.7",
-    "next": "^8.0.4",
-    "next-redux-saga": "^4.0.1",
+    "next": "^8.1.0",
+    "next-redux-saga": "^4.0.2",
     "next-redux-wrapper": "^3.0.0-alpha.2",
+    "node-fetch": "^2.5.0",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-frame-component": "^4.1.0",
     "react-jss": "^8.6.1",
     "react-oauth-popup": "^0.1.0",
-    "react-redux": "^7.0.1",
+    "react-redux": "^7.0.3",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
-    "redux-saga": "^1.0.2"
+    "redux-saga": "^1.0.2",
+    "styled-jsx": "^3.2.1",
+    "unfetch": "^4.1.0",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0"
   }
 }
